@@ -1,10 +1,14 @@
 #!/usr/bin/python
 import json
 
-data = list()
-with open('yelp_academic_dataset_business.json') as f:
-    for line in f:
-        data.append(json.loads(f))
+def load_json(json_filename):
+    data = list()
+    with open(json_filename) as f:
+        for line in f:
+            data.append(json.loads(f))
+    return data
+
+data = load_json('yelp_academic_dataset_business.json')
 
 for row in data:
     if row['attributes']:
@@ -14,7 +18,7 @@ for row in data:
 # De-dupe
 all_attributes = list(set(all_attributes))
 
-with open('attributes.txt', 'w') as f:
+with open('yelp_academic_dataset_business-attributes.txt', 'w') as f:
     for attribute in sorted(all_attributes):
         f.write(attribute + '\n')
-        
+
