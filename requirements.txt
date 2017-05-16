@@ -1,0 +1,4 @@
+future==0.16.0
+pandas==0.20.1
+tqdm==4.11.2
+unicodecsv==0.14.1
