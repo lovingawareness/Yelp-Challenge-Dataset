@@ -31,11 +31,13 @@ for row in data:
             value = value.strip()
             all_attributes.append(attribute)
             if '{' in value:
-                attributes_with_subattributes.append(attribute)
-                data = ast.literal_eval(value)
-                for subattribute, v in data.iteritems():
+                attribute_data = ast.literal_eval(value)
+                for subattribute, v in attribute_data.iteritems():
                     attributes_with_subattributes[attribute].add(subattribute)                
 all_attributes = set(all_attributes)
+print("Found these attributes with sub-attributes:")
+for attribute, subattributes in attributes_with_subattributes.iteritems():
+    print('%s: %s' % (attribute, ', '.join(subattributes)))
 
 
 print("Writing attributes to file...")
