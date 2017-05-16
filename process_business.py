@@ -1,7 +1,9 @@
 #!/usr/bin/python
 from __future__ import print_function
-import unicodecsv as csv
 from tqdm import tqdm
+import unicodecsv as csv
+import ast
+from collections import defaultdict
 import json
 
 print("Reading data from JSON...")
@@ -20,11 +22,21 @@ all_categories = set(all_categories)
 
 print("Calculating all attributes represented in the data...")
 all_attributes = []
+attributes_with_subattributes = defaultdict(lambda: set())
 for row in data:
     if row['attributes']:
         for attribute_string in row['attributes']:
-            all_attributes.append(attribute_string.split(':')[0])
+            attribute = attribute_string.split(':')[0]
+            value = ':'.join(attribute_string.split(':')[1:])
+            value = value.strip()
+            all_attributes.append(attribute)
+            if '{' in value:
+                attributes_with_subattributes.append(attribute)
+                data = ast.literal_eval(value)
+                for subattribute, v in data.iteritems():
+                    attributes_with_subattributes[attribute].add(subattribute)                
 all_attributes = set(all_attributes)
+
 
 print("Writing attributes to file...")
 with open('yelp_academic_dataset_business-attributes.txt', 'w') as f:
@@ -47,13 +59,24 @@ for row in tqdm(data):
                     day, time_string = hour.split(' ')
                     new_row['hours_' + day] = time_string
             elif k == 'attributes' and row['attributes']:
-                attributes = dict()
+                attributes = defaultdict(lambda: dict())
                 for attribute_string in row['attributes']:
                     attribute = attribute_string.split(':')[0]
                     value = ':'.join(attribute_string.split(':')[1:])
-                    attributes[attribute] = value
+                    value = value.strip()
+                    if '{' in value:
+                        data = ast.literal_eval(value)
+                        for subattribute, subattribute_value in data.iteritems():
+                            attributes[attribute][subattribute] = subattribute_value
+                    else:
+                        attributes[attribute] = value
                 for attribute in all_attributes:
-                    new_row['attribute_' + attribute] = attributes.get(attribute, False)
+                    if attribute in attributes_with_subattributes:
+                        for subattribute in attributes_with_subattributes[attribute]:
+                            subattributes = attributes.get(attribute, dict())
+                            new_row['attribute_' + attribute + '_' + subattribute] = subattributes.get(subattribute, False)
+                    else:
+                        new_row['attribute_' + attribute] = attributes.get(attribute, False)
             elif k == 'categories' and row['categories']:
                 new_row['categories'] = ', '.join(sorted(row['categories']))
 #                for category in all_categories:
