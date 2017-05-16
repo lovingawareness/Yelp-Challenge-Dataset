@@ -1,19 +1,24 @@
 #!/usr/bin/python
+from __future__ import print_function
 import unicodecsv as csv
+from tqdm import tqdm
 import json
 
+print("Reading data from JSON...")
 data = list()
 with open('yelp_academic_dataset_business.json') as f:
     for line in f:
         data.append(json.loads(line))
 
 
+print("Calculating all categories represented in the data...")
 all_categories = []
 for row in data:
     if row['categories']:
         all_categories += row['categories']
 all_categories = set(all_categories)
 
+print("Calculating all attributes represented in the data...")
 all_attributes = []
 for row in data:
     if row['attributes']:
@@ -21,15 +26,17 @@ for row in data:
             all_attributes.append(attribute_string.split(':')[0])
 all_attributes = set(all_attributes)
 
+print("Writing attributes to file...")
 with open('yelp_academic_dataset_business-attributes.txt', 'w') as f:
     f.write('\n'.join(sorted(list(all_attributes))))
 
-
+print("Writing categories to file...")
 with open('yelp_academic_dataset_business-categories.txt', 'w') as f:
     f.write('\n'.join(sorted(list(all_categories))))
 
+print("Processing data...")
 new_data = list()
-for row in data:
+for row in tqdm(data):
     new_row = {}
     for k, v in row.iteritems():
         if k not in ['hours', 'categories', 'attributes']:
@@ -53,7 +60,9 @@ for row in data:
 #                    new_row['category_' + category] = (category in row['categories'])
     new_data.append(new_row)
 
+print("Writing data to CSV file...")
 with open('yelp_academic_dataset_business.csv', 'wb') as f:
-    dw = csv.DictWriter(f, fieldnames=new_data[0].keys(), encoding='UTF-8')
+    fieldnames = sorted(new_data[0].keys())
+    dw = csv.DictWriter(f, fieldnames=fieldnames, encoding='UTF-8')
     dw.writeheader()
     dw.writerows(new_data)
