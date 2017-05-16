@@ -1,4 +1,4 @@
-![Northwestern University](http://imgur.com/EfQ0qhf.png?1)
+![Northwestern University | Kellogg School of Management](http://imgur.com/KYfB2Ly.jpg?1)
 
 # Introduction
 
