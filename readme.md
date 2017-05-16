@@ -134,7 +134,7 @@ In the output, we don't care so much who the friends are but how many. In the CS
 
 ## Post-processing
 
-After these CSVs are created, sample CSVs are created in the data_samples subfolder with the first 1000 rows of each CSV. Thesea re then zipped.
+After these CSVs are created, sample CSVs are created in the data_samples subfolder with the first 1000 rows of each CSV. These are then zipped.
 
 The large CSVs are also zipped for easy distribution.
 
