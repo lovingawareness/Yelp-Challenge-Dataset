@@ -20,20 +20,20 @@ Run `./process_all.sh`.
 
 You should then find the following files:
 
-yelp_academic_dataset_business.csv
-yelp_academic_dataset_user.csv
-yelp_academic_dataset_checkin.csv
-yelp_academic_dataset_tip.csv
-yelp_academic_dataset_review.csv
-yelp_academic_dataset-CSV.zip
-data_samples/yelp_academic_dataset_business-head1000.csv
-data_samples/yelp_academic_dataset_user-head1000.csv
-data_samples/yelp_academic_dataset_checkin-head1000.csv
-data_samples/yelp_academic_dataset_tip-head1000.csv
-data_samples/yelp_academic_dataset_review-head1000.csv
-yelp_academic_dataset-CSV-samples.zip
-yelp_academic_dataset_business-attributes.txt
-yelp_academic_dataset_business-categories.txt
+* yelp_academic_dataset_business.csv
+* yelp_academic_dataset_user.csv
+* yelp_academic_dataset_checkin.csv
+* yelp_academic_dataset_tip.csv
+* yelp_academic_dataset_review.csv
+* yelp_academic_dataset-CSV.zip
+* data_samples/yelp_academic_dataset_business-head1000.csv
+* data_samples/yelp_academic_dataset_user-head1000.csv
+* data_samples/yelp_academic_dataset_checkin-head1000.csv
+* data_samples/yelp_academic_dataset_tip-head1000.csv
+* data_samples/yelp_academic_dataset_review-head1000.csv
+* yelp_academic_dataset-CSV-samples.zip
+* yelp_academic_dataset_business-attributes.txt
+* yelp_academic_dataset_business-categories.txt
 
 # What it does
 
