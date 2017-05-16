@@ -8,6 +8,8 @@ The dataset for 2017 is available from Yelp here: https://www.yelp.com/dataset_c
 
 This will process the JSON files for the businesses and reviews, but does not treat the photo data. This reformats the JSON files into CSV files.
 
+This data is being used by a team of MBA students for an in-class project at the [Kellogg School of Management](https://www.kellogg.northwestern.edu/) at [Northwestern University](https://www.northwestern.edu/).
+
 # How to run it
 
 Clone this repository to your computer with `git clone https://github.com/tothebeat/Yelp-Challenge-Dataset.git` and change directory into it.
@@ -142,4 +144,4 @@ The large CSVs are also zipped for easy distribution.
 
 ## Who made this?
 
-Nick Bennett [nicholas.bennett@kellogg.northwestern.edu](mailto:nicholas.bennett@kellogg.northwestern.edu), Senior Technical Support Specialist in [Kellogg Information Systems](http://kis.kellogg.northwestern.edu) at the [Kellogg School of Management](http://www.kellogg.northwestern.edu/).
+Nick Bennett [nicholas.bennett@kellogg.northwestern.edu](mailto:nicholas.bennett@kellogg.northwestern.edu), Senior Technical Support Specialist in [Kellogg Information Systems](https://kis.kellogg.northwestern.edu) at the [Kellogg School of Management](https://www.kellogg.northwestern.edu/).
