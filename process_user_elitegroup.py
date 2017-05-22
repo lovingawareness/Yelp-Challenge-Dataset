@@ -23,6 +23,7 @@ columns_to_keep = \
  "funny": "funny",                               \
  "review_count": "review_count_user",            \
  "useful": "useful",                             \
+ "user_id": "user_id",                           \
  "yelping_since": "yelping_since"};
 
 print("Processing yelp_academic_dataset_user.csv into yelp_academic_dataset_user-elitegroup.csv...")
