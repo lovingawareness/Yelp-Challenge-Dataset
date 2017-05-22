@@ -1,5 +1,6 @@
 .DS_Store
 data_samples
+*merged.csv
 yelp_academic_dataset_*.json
 yelp_academic_dataset_*.csv
 *.pdf
