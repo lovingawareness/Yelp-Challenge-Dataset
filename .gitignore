@@ -4,3 +4,5 @@ yelp_academic_dataset_*.json
 yelp_academic_dataset_*.csv
 *.pdf
 *.zip
+*.ipynb
+.ipynb_checkpoints
