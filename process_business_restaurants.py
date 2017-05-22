@@ -16,7 +16,7 @@ columns_to_keep = \
  "attribute_RestaurantsPriceRange2": "attribute_RestaurantsPriceRange2",    \
  "business_id": "business_id",                                              \
  "review_count": "review_count",                                            \
- "stars": "stars",                                                          \
+ "stars": "business_stars",                                                 \
  "categories": "categories",                                                \
  "city": "city"}
 
