@@ -11,7 +11,7 @@ with open('yelp_academic_dataset_review.json', 'rb') as f_in:
         review = json.loads(line)
         text = review['text'] or ''
         review['text_wordcount'] = len(text.split(' '))
-        review['review_stars'] = review['stars']
+        review['stars_review'] = review['stars']
         review.pop('text')
         review.pop('stars')
         output_rows.append(review)

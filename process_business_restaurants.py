@@ -15,8 +15,8 @@ columns_to_keep = \
  "attribute_Ambience_upscale": "attribute_Ambience_upscale",                \
  "attribute_RestaurantsPriceRange2": "attribute_RestaurantsPriceRange2",    \
  "business_id": "business_id",                                              \
- "review_count": "review_count",                                            \
- "stars": "business_stars",                                                 \
+ "review_count": "review_count_biz",                                        \
+ "stars": "stars_biz",                                                      \
  "categories": "categories",                                                \
  "city": "city"}
 
